@@ -7,25 +7,26 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
-    private Rigidbody2D rb;
+    public GameObject player;
+    public Rigidbody2D rb_player;
     private bool isGrounded;
     public LayerMask groundLayer;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-                Debug.Log("PlayerController started and Rigidbody2D component found.");
+        rb_player = player.GetComponent<Rigidbody2D>();
+                // Debug.Log("PlayerController started and Rigidbody2D component found.");
     }
 
     void Update()
     {
-
-
         if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            rb.velocity = new Vector2(0, 8);
-            Debug.Log(isGrounded);
+            rb_player.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            rb_player.velocity = new Vector2(0, 8);
+            // Debug.Log(isGrounded);
+            // Debug.Log(player.transform.position);
+
         }
     }
 
