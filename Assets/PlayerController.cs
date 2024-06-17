@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb_player;
     private bool isGrounded;
     public LayerMask groundLayer;
+    public bool isAlive = true;
+
 
     void Start()
     {
@@ -20,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isAlive)
         {
             rb_player.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             rb_player.velocity = new Vector2(0, 8);
