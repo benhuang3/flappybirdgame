@@ -8,6 +8,7 @@ public class CollisionScript : MonoBehaviour
     // Start is called before the first frame update
     public PlayerController PlayerController_CollisionScript;
     public PipeSpawner PipeSpawner_CollisionScript;
+    public GameOverScript GameOverScript_CollisionScript;
 
     void Start()
     {
@@ -34,12 +35,19 @@ public class CollisionScript : MonoBehaviour
                 Rigidbody2D rb_bot = pipe_bot.GetComponent<Rigidbody2D>();
                 rb_top.velocity = new Vector2(0, 0);
                 rb_bot.velocity = new Vector2(0, 0);
+                Invoke("InvokeShowGameOver", 1f);
             }
+
         }
         // if (collision.gameObject.layer == LayerMask.NameToLayer("pipes"))
         // {   
         //     Debug.Log("hit pipe");
         // }
     }
+    void InvokeShowGameOver()
+    {
+        GameOverScript_CollisionScript.ShowGameOver();
+    }
+
  
 }

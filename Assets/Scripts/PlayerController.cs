@@ -70,8 +70,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private bool IsGroundLayer(GameObject obj)
-    {
-        
+    {   
         return (obj.layer == LayerMask.NameToLayer("GroundLayer"));
     }
 }

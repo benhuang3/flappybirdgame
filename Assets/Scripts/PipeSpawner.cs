@@ -59,9 +59,14 @@ public class PipeSpawner : MonoBehaviour
     {
         // Executes the first line of code
         yield return new WaitForSeconds(5);
-        Debug.Log("Pipe Deleted");
-        Destroy(delete_pipe);
-        activePipes.Dequeue();
+        if (PlayerController_PipeSpawner.isAlive)
+        {
+            Debug.Log("Pipe Deleted");
+            
+            Destroy(delete_pipe);
+            activePipes.Dequeue();
+        }
+        
 
 
     }
